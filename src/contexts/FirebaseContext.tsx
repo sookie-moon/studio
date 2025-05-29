@@ -77,9 +77,16 @@ export const FirebaseProvider: React.FC<{ children: React.ReactNode }> = ({ chil
           // After sign-in, onAuthStateChanged will trigger again with the new user
         } catch (error: any) {
           console.error("Firebase sign-in error:", error);
-          // Differentiate API key error from other sign-in errors
           if (error.code === 'auth/invalid-api-key' || (error.message && error.message.includes('api-key-not-valid'))) {
              setUserIdDisplay("Firebase API Key invalid. Check config.");
+          } else if (error.code === 'auth/configuration-not-found') {
+             setUserIdDisplay("Auth setup needed. Check console for details.");
+             console.error(
+                "Firebase sign-in error (auth/configuration-not-found): This error means either:" +
+                "\n1. Anonymous sign-in is NOT ENABLED in your Firebase project's Authentication settings (Firebase Console > Authentication > Sign-in method > Add new provider > Anonymous)." +
+                "\n2. Your NEXT_PUBLIC_FIREBASE_CONFIG in .env is incomplete or incorrect (e.g., missing 'authDomain' or 'projectId'), even if 'apiKey' is present." +
+                "\nPlease verify both your Firebase project settings and your .env file."
+             );
           } else {
              setUserIdDisplay(`Sign-in failed: ${error.code || 'Unknown error'}`);
           }
