@@ -47,7 +47,7 @@ export default function GameArea({
               guessedLetters.includes(lowerChar) ? 'border-primary' : 'border-panel-light'
             }`}
           >
-            {guessedLetters.includes(lowerChar) ? char.toUpperCase() : '\u00A0'}
+            {guessedLetters.includes(lowerChar) ? char.toUpperCase() : '_'}
           </span>
         );
       })
