@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import type { User } from 'firebase/auth';
 import type { Unsubscribe } from 'firebase/firestore';
 
