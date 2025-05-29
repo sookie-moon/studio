@@ -12,7 +12,7 @@ const poppins = Poppins({ // Configured Poppins
 });
 
 export const metadata: Metadata = {
-  title: 'WordCraft Duel',
+  title: 'Hangin’ with Jisook',
   description: 'Hangman battle game with single and two player modes.',
 };
 
