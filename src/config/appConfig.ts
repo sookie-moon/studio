@@ -1,3 +1,4 @@
+
 export const APP_ID = process.env.NEXT_PUBLIC_APP_ID || 'default-hangman-app';
 
 // Firebase configuration placeholder - replace with your actual config
@@ -5,32 +6,42 @@ export const APP_ID = process.env.NEXT_PUBLIC_APP_ID || 'default-hangman-app';
 const firebaseConfigString = process.env.NEXT_PUBLIC_FIREBASE_CONFIG;
 
 let firebaseConfigFromEnv = {};
+
+const placeholderFirebaseConfig = {
+  apiKey: "YOUR_API_KEY", // Placeholder
+  authDomain: "YOUR_AUTH_DOMAIN", // Placeholder
+  projectId: "YOUR_PROJECT_ID", // Placeholder
+  storageBucket: "YOUR_STORAGE_BUCKET", // Placeholder
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID", // Placeholder
+  appId: "YOUR_APP_ID", // Placeholder
+};
+
 if (firebaseConfigString) {
   try {
     firebaseConfigFromEnv = JSON.parse(firebaseConfigString);
-  } catch (e) {
-    console.error("Failed to parse NEXT_PUBLIC_FIREBASE_CONFIG:", e);
-    // Provide default/empty config or throw error if critical
-    firebaseConfigFromEnv = {
-      apiKey: "YOUR_API_KEY", // Placeholder
-      authDomain: "YOUR_AUTH_DOMAIN", // Placeholder
-      projectId: "YOUR_PROJECT_ID", // Placeholder
-      storageBucket: "YOUR_STORAGE_BUCKET", // Placeholder
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID", // Placeholder
-      appId: "YOUR_APP_ID", // Placeholder
-    };
+    // Basic validation to ensure it's an object with at least apiKey
+    if (typeof firebaseConfigFromEnv !== 'object' || firebaseConfigFromEnv === null || !('apiKey' in firebaseConfigFromEnv)) {
+      console.error(
+        "NEXT_PUBLIC_FIREBASE_CONFIG was parsed but does not seem to be a valid Firebase config object. " +
+        "Please ensure it's a JSON object like {'apiKey':'...', ...}. Using placeholder config."
+      );
+      firebaseConfigFromEnv = placeholderFirebaseConfig;
+    }
+  } catch (e: any) {
+    console.error(
+      "Failed to parse NEXT_PUBLIC_FIREBASE_CONFIG. " +
+      "This usually means the value in your .env file is not a valid JSON string. " +
+      "Please ensure it is correctly formatted, e.g., NEXT_PUBLIC_FIREBASE_CONFIG='{\"key\":\"value\",...}'. " +
+      "Original parsing error: " + e.message + ". Using placeholder config."
+    );
+    firebaseConfigFromEnv = placeholderFirebaseConfig;
   }
 } else {
-  console.warn("NEXT_PUBLIC_FIREBASE_CONFIG is not set. Using placeholder Firebase config.");
-  // Provide default/empty config or throw error if critical
-    firebaseConfigFromEnv = {
-      apiKey: "YOUR_API_KEY", // Placeholder
-      authDomain: "YOUR_AUTH_DOMAIN", // Placeholder
-      projectId: "YOUR_PROJECT_ID", // Placeholder
-      storageBucket: "YOUR_STORAGE_BUCKET", // Placeholder
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID", // Placeholder
-      appId: "YOUR_APP_ID", // Placeholder
-    };
+  console.warn(
+    "NEXT_PUBLIC_FIREBASE_CONFIG environment variable is not set. " +
+    "Using placeholder Firebase config. Please set it in your .env file for the app to function correctly."
+  );
+  firebaseConfigFromEnv = placeholderFirebaseConfig;
 }
 
 export const FIREBASE_CONFIG = firebaseConfigFromEnv;
