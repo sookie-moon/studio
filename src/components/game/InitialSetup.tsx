@@ -46,7 +46,7 @@ export default function InitialSetup({ onNameSaved, showMessage }: InitialSetupP
   return (
     <Card className="w-full max-w-md bg-panel">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold text-primary text-center">WordCraft Duel</CardTitle>
+        <CardTitle className="text-3xl font-bold text-primary text-center">Hangin’ with Jisook</CardTitle>
         <CardDescription className="text-center">
           Your User ID: <span className="font-mono text-xs">{userIdDisplay}</span>
         </CardDescription>
