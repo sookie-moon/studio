@@ -2,103 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Removed top-level body font-family, it's handled in @layer base */
-
 @layer base {
   :root {
-    /* New Dark Theme based on user request */
-    --background: 0 0% 0%; /* Black - for components, body will have gradient */
-    --foreground: 0 0% 100%; /* White */
+    /* New theme based on the provided image */
+    --background: 200 10% 10%;            /* Very Dark Blueish Gray (e.g., #171A1C) */
+    --foreground: 0 0% 90%;               /* Light Gray / Off-White (e.g., #E6E6E6) */
 
-    --card: 180 12% 31%; /* Dark Slate Gray #445858 - for panels */
-    --card-foreground: 0 0% 100%; /* White */
+    --card: 190 10% 25%;                  /* Dark Muted Teal-Gray for panel (e.g., #3A4042) */
+    --card-foreground: 0 0% 90%;          /* Light Gray / Off-White */
 
-    --popover: 180 12% 31%; /* Dark Slate Gray #445858 */
-    --popover-foreground: 0 0% 100%; /* White */
+    --popover: 190 10% 25%;               /* Dark Muted Teal-Gray */
+    --popover-foreground: 0 0% 90%;       /* Light Gray / Off-White */
 
-    --primary: 185 39% 60%; /* Tealish #6bbec4 - for actions */
-    --primary-foreground: 0 0% 0%; /* Black - for contrast on Tealish */
+    --primary: 180 40% 65%;               /* Medium Light Teal for button (e.g., #7DD4D4) */
+    --primary-foreground: 0 0% 10%;       /* Black for button text */
 
-    --secondary: 180 11% 36%; /* Slightly lighter than card #506666 */
-    --secondary-foreground: 0 0% 100%; /* White */
+    --secondary: 190 10% 30%;             /* Slightly lighter teal-gray (e.g., #424A4D) */
+    --secondary-foreground: 0 0% 90%;     /* Light Gray / Off-White */
 
-    --muted: 180 13% 22%; /* Darker shade #303f3f */
-    --muted-foreground: 0 0% 80%; /* Lighter gray for contrast */
+    --muted: 200 10% 20%;                 /* Darker muted color (e.g., #2E3338) */
+    --muted-foreground: 0 0% 60%;         /* Medium Gray */
 
-    --accent: 94 56% 72%; /* Light Green #b4e28d - for success messages (mapped from accent) */
-    --accent-foreground: 0 0% 0%; /* Black - for contrast on Light Green */
+    /* Re-using explicitly requested success/error colors for consistency */
+    --accent: 94 56% 72%;                 /* Light Green #b4e28d (for general accent, mapped from success) */
+    --accent-foreground: 0 0% 10%;        /* Black */
 
-    --destructive: 327 65% 34%; /* Dark Magenta/Maroon #921e5b - for error messages */
-    --destructive-foreground: 0 0% 100%; /* White - for contrast on Dark Magenta */
+    --destructive: 327 65% 34%;           /* Dark Magenta/Maroon #921e5b (for errors) */
+    --destructive-foreground: 0 0% 90%;   /* Light Gray / Off-White */
 
-    --border: 180 10% 40%; /* #5c6666 */
-    --input: 180 12% 35%; /* #4a5e5e */
-    --ring: 185 39% 50%; /* Darker teal #5ba2a8 for focus rings */
+    --border: 190 10% 35%;                /* Slightly lighter than card for borders (e.g., #4F5759) */
+    --input: 220 10% 30%;                 /* Dark Muted Blue-Gray for input (e.g., #454852) */
+    --ring: 180 40% 55%;                  /* Slightly darker primary for focus rings (e.g., #63BDBD) */
 
     --radius: 0.5rem;
 
-    /* Custom colors for game feedback, directly using new scheme */
-    --success: 94 56% 72%; /* Light Green #b4e28d */
-    --success-foreground: 0 0% 0%; /* Black */
-    --error: 327 65% 34%; /* Dark Magenta/Maroon #921e5b */
-    --error-foreground: 0 0% 100%; /* White */
+    /* Custom colors for game feedback, ensure they align */
+    --success: 94 56% 72%;                /* Light Green #b4e28d */
+    --success-foreground: 0 0% 10%;       /* Black */
+    --error: 327 65% 34%;                 /* Dark Magenta/Maroon #921e5b */
+    --error-foreground: 0 0% 90%;         /* Light Gray / Off-White */
     
-    /* Chart colors - updated for dark background visibility */
-    --chart-1: 30 90% 65%; /* Vibrant Orange */
+    /* Chart colors - adjusted for new dark background visibility */
+    --chart-1: 30 90% 65%;  /* Vibrant Orange */
     --chart-2: 150 70% 55%; /* Vibrant Green */
     --chart-3: 210 80% 60%; /* Vibrant Blue */
-    --chart-4: 50 95% 60%; /* Vibrant Yellow */
-    --chart-5: 0 85% 65%; /* Vibrant Red */
+    --chart-4: 50 95% 60%;  /* Vibrant Yellow */
+    --chart-5: 0 85% 65%;   /* Vibrant Red */
 
     /* Sidebar colors - adapted to new dark theme */
-    --sidebar-background: 180 12% 25%;  /* Darker panel color #333f3f */
-    --sidebar-foreground: 0 0% 90%; /* Lighter text */
-    --sidebar-primary: 185 39% 55%; /* Slightly darker primary for sidebar elements */
-    --sidebar-primary-foreground: 0 0% 0%; /* Black */
-    --sidebar-accent: 94 56% 65%; /* Slightly darker accent (success green) */
-    --sidebar-accent-foreground: 0 0% 0%; /* Black */
-    --sidebar-border: 180 10% 35%; /* #475252 */
-    --sidebar-ring: 185 39% 45%; /* #4f8a8f */
+    --sidebar-background: 195 10% 18%;  /* Slightly different dark shade for sidebar, e.g. #282E33 */
+    --sidebar-foreground: 0 0% 85%;    /* Lighter text for sidebar */
+    --sidebar-primary: 180 40% 60%;    /* Primary color for sidebar interactive elements */
+    --sidebar-primary-foreground: 0 0% 10%; /* Black */
+    --sidebar-accent: 94 56% 68%;      /* Accent color for sidebar, slightly adjusted success green */
+    --sidebar-accent-foreground: 0 0% 10%; /* Black */
+    --sidebar-border: 190 10% 28%;     /* Sidebar border */
+    --sidebar-ring: 180 40% 50%;       /* Sidebar ring */
   }
 
   .dark {
     /* Making .dark theme identical to :root as the new theme is dark by default */
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 180 12% 31%;
-    --card-foreground: 0 0% 100%;
-    --popover: 180 12% 31%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 185 39% 60%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 180 11% 36%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 180 13% 22%;
-    --muted-foreground: 0 0% 80%;
+    --background: 200 10% 10%;
+    --foreground: 0 0% 90%;
+    --card: 190 10% 25%;
+    --card-foreground: 0 0% 90%;
+    --popover: 190 10% 25%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 180 40% 65%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 190 10% 30%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 200 10% 20%;
+    --muted-foreground: 0 0% 60%;
     --accent: 94 56% 72%;
-    --accent-foreground: 0 0% 0%;
+    --accent-foreground: 0 0% 10%;
     --destructive: 327 65% 34%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 180 10% 40%;
-    --input: 180 12% 35%;
-    --ring: 185 39% 50%;
+    --destructive-foreground: 0 0% 90%;
+    --border: 190 10% 35%;
+    --input: 220 10% 30%;
+    --ring: 180 40% 55%;
     --success: 94 56% 72%;
-    --success-foreground: 0 0% 0%;
+    --success-foreground: 0 0% 10%;
     --error: 327 65% 34%;
-    --error-foreground: 0 0% 100%;
+    --error-foreground: 0 0% 90%;
     --chart-1: 30 90% 65%;
     --chart-2: 150 70% 55%;
     --chart-3: 210 80% 60%;
     --chart-4: 50 95% 60%;
     --chart-5: 0 85% 65%;
-    --sidebar-background: 180 12% 25%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 185 39% 55%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 94 56% 65%;
-    --sidebar-accent-foreground: 0 0% 0%;
-    --sidebar-border: 180 10% 35%;
-    --sidebar-ring: 185 39% 45%;
+    --sidebar-background: 195 10% 18%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 180 40% 60%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 94 56% 68%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 190 10% 28%;
+    --sidebar-ring: 180 40% 50%;
   }
 }
 
@@ -107,15 +106,10 @@
     @apply border-border;
   }
   body {
-    @apply text-foreground; /* Apply foreground color (white) */
-    /* Apply gradient background */
-    background-color: hsl(var(--background)); /* Fallback: uses --background (black) */
-    background-image: linear-gradient(to bottom, hsl(180, 12%, 31%), hsl(0, 0%, 0%)); /* #445858 to #000000 */
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Ensures gradient covers viewport */
-    min-height: 100vh; /* Ensures gradient covers full height */
+    @apply bg-background text-foreground; /* Apply new background and foreground */
     font-family: var(--font-poppins), Arial, Helvetica, sans-serif; /* Apply Poppins font */
     touch-action: manipulation; /* From user HTML for better mobile UX */
+    min-height: 100vh; /* Ensures background covers full height */
   }
   /* For selection color, from user HTML */
   ::selection {
@@ -135,7 +129,7 @@
   border-color: hsl(var(--primary)); /* Uses new --primary color */
 }
 .border-panel-light { /* Used for empty letter underlines */
-  @apply border-gray-600 dark:border-gray-700; /* Adjusted for new dark themes, can be tuned more if needed */
+  @apply border-gray-600 dark:border-gray-700; /* Kept existing, can be tuned to new theme if needed e.g. border-muted */
 }
 
 .text-accent-success {
@@ -167,18 +161,17 @@
 .hangman-svg {
     width: 150px;
     height: 180px;
-    stroke: hsl(var(--foreground)); /* Use theme foreground color (white) */
+    stroke: hsl(var(--foreground)); /* Use theme foreground color */
     stroke-width: 4;
     stroke-linecap: round;
     fill: none;
 }
 .hangman-svg .body-part { 
   display: none; 
-  stroke: hsl(var(--foreground)); /* Ensure body parts also use theme foreground (white) */
+  stroke: hsl(var(--foreground)); /* Ensure body parts also use theme foreground */
 }
 
 /* Ensure button text is visible on primary/accent backgrounds */
-/* These classes now correctly use the HSL variables which have appropriate foregrounds defined */
 .btn-primary-text {
   @apply text-primary-foreground;
 }
